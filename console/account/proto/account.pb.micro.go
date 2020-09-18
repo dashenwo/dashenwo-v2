@@ -43,7 +43,9 @@ func NewAccountEndpoints() []*api.Endpoint {
 
 type AccountService interface {
 	Login(ctx context.Context, in *LoginRequest, opts ...client.CallOption) (*LoginResponse, error)
+	Info(ctx context.Context, in *InfoRequest, opts ...client.CallOption) (*InfoResponse, error)
 	Register(ctx context.Context, in *RegisterRequest, opts ...client.CallOption) (*RegisterResponse, error)
+	Update(ctx context.Context, in *UpdateRequest, opts ...client.CallOption) (*UpdateResponse, error)
 }
 
 type accountService struct {
@@ -68,9 +70,29 @@ func (c *accountService) Login(ctx context.Context, in *LoginRequest, opts ...cl
 	return out, nil
 }
 
+func (c *accountService) Info(ctx context.Context, in *InfoRequest, opts ...client.CallOption) (*InfoResponse, error) {
+	req := c.c.NewRequest(c.name, "Account.Info", in)
+	out := new(InfoResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *accountService) Register(ctx context.Context, in *RegisterRequest, opts ...client.CallOption) (*RegisterResponse, error) {
 	req := c.c.NewRequest(c.name, "Account.Register", in)
 	out := new(RegisterResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountService) Update(ctx context.Context, in *UpdateRequest, opts ...client.CallOption) (*UpdateResponse, error) {
+	req := c.c.NewRequest(c.name, "Account.Update", in)
+	out := new(UpdateResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -82,13 +104,17 @@ func (c *accountService) Register(ctx context.Context, in *RegisterRequest, opts
 
 type AccountHandler interface {
 	Login(context.Context, *LoginRequest, *LoginResponse) error
+	Info(context.Context, *InfoRequest, *InfoResponse) error
 	Register(context.Context, *RegisterRequest, *RegisterResponse) error
+	Update(context.Context, *UpdateRequest, *UpdateResponse) error
 }
 
 func RegisterAccountHandler(s server.Server, hdlr AccountHandler, opts ...server.HandlerOption) error {
 	type account interface {
 		Login(ctx context.Context, in *LoginRequest, out *LoginResponse) error
+		Info(ctx context.Context, in *InfoRequest, out *InfoResponse) error
 		Register(ctx context.Context, in *RegisterRequest, out *RegisterResponse) error
+		Update(ctx context.Context, in *UpdateRequest, out *UpdateResponse) error
 	}
 	type Account struct {
 		account
@@ -105,6 +131,14 @@ func (h *accountHandler) Login(ctx context.Context, in *LoginRequest, out *Login
 	return h.AccountHandler.Login(ctx, in, out)
 }
 
+func (h *accountHandler) Info(ctx context.Context, in *InfoRequest, out *InfoResponse) error {
+	return h.AccountHandler.Info(ctx, in, out)
+}
+
 func (h *accountHandler) Register(ctx context.Context, in *RegisterRequest, out *RegisterResponse) error {
 	return h.AccountHandler.Register(ctx, in, out)
+}
+
+func (h *accountHandler) Update(ctx context.Context, in *UpdateRequest, out *UpdateResponse) error {
+	return h.AccountHandler.Update(ctx, in, out)
 }

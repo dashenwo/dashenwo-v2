@@ -68,3 +68,11 @@ func (a *Account) Register(ctx context.Context, req *proto.RegisterRequest, res 
 	res.Id = account.ID
 	return nil
 }
+
+// 查询信息
+func (a *Account) Info(ctx context.Context, req *proto.InfoRequest, res *proto.InfoResponse) error {
+	return nil
+}
+func (a *Account) Update(ctx context.Context, req *proto.UpdateRequest, res *proto.UpdateResponse) error {
+	return nil
+}

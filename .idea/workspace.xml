@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="53999960-aeec-44e1-9564-9eb8e0ae5f3f" name="默认的" comment="" />
+    <list default="true" id="53999960-aeec-44e1-9564-9eb8e0ae5f3f" name="默认的" comment="这是使用go-micro v2版本">
+      <change beforePath="$PROJECT_DIR$/.idea/dashenwo-v2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dashenwo-v2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/global/global.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/handler/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/handler/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/internal/service/s_account.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/internal/service/s_account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/proto/account.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/proto/account.pb.micro.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/registry/container.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/registry/container.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/snowflake/proto/snowflake.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/snowflake/proto/snowflake.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/snowflake/proto/snowflake.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/snowflake/proto/snowflake.pb.micro.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/account/account.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/account/account.proto" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
@@ -23,6 +60,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -37,6 +76,62 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
+  <component name="RunManager" selected="Go Build.account">
+    <configuration name="account" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="dashenwo-v2" />
+      <working_directory value="$PROJECT_DIR$/console/account/bin" />
+      <envs>
+        <env name="MICRO_REGISTRY" value="etcd" />
+        <env name="MICRO_REGISTRY_ADDRESS" value="49.235.160.203:2379" />
+      </envs>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/console/account/main.go" />
+      <package value="github.com/dashenwo/dashenwo/v2/console/account" />
+      <directory value="$PROJECT_DIR$/" />
+      <output_directory value="$PROJECT_DIR$/console/account/bin" />
+      <method v="2" />
+    </configuration>
+    <configuration name="snowflake" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="dashenwo-v2" />
+      <working_directory value="$PROJECT_DIR$/console/snowflake/bin" />
+      <envs>
+        <env name="MICRO_REGISTRY" value="etcd" />
+        <env name="MICRO_REGISTRY_ADDRESS" value="49.235.160.203:2379" />
+      </envs>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/console/snowflake/main.go" />
+      <package value="github.com/dashenwo/dashenwo/v2/console/snowflake" />
+      <directory value="$PROJECT_DIR$/" />
+      <output_directory value="$PROJECT_DIR$/console/snowflake/bin" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.account" />
+      <item itemvalue="Go Build.snowflake" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.account" />
+        <item itemvalue="Go Build.snowflake" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="这是使用go-micro v2版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="这是使用go-micro v2版本" />
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <environment>
@@ -50,10 +145,50 @@
       <screen x="0" y="23" width="1600" height="877" />
     </state>
     <state x="600" y="302" key="#Go_Modules/0.23.1600.877@0.23.1600.877" timestamp="1600398455811" />
+    <state x="264" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600421144691">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state x="264" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1600.877@0.23.1600.877" timestamp="1600421144691" />
     <state x="714" y="325" key="EnvironmentVariablesDialog" timestamp="1600398454413">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
     <state x="714" y="325" key="EnvironmentVariablesDialog/0.23.1600.877@0.23.1600.877" timestamp="1600398454413" />
+    <state width="1558" height="190" key="GridCell.Tab.0.bottom" timestamp="1600424768952">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1558" height="190" key="GridCell.Tab.0.bottom/0.23.1600.877@0.23.1600.877" timestamp="1600424768952" />
+    <state width="1558" height="190" key="GridCell.Tab.0.center" timestamp="1600424768951">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1558" height="190" key="GridCell.Tab.0.center/0.23.1600.877@0.23.1600.877" timestamp="1600424768951" />
+    <state width="1558" height="190" key="GridCell.Tab.0.left" timestamp="1600424768950">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1558" height="190" key="GridCell.Tab.0.left/0.23.1600.877@0.23.1600.877" timestamp="1600424768950" />
+    <state width="1558" height="190" key="GridCell.Tab.0.right" timestamp="1600424768951">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1558" height="190" key="GridCell.Tab.0.right/0.23.1600.877@0.23.1600.877" timestamp="1600424768951" />
+    <state width="1558" height="190" key="GridCell.Tab.1.bottom" timestamp="1600424768829">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1558" height="190" key="GridCell.Tab.1.bottom/0.23.1600.877@0.23.1600.877" timestamp="1600424768829" />
+    <state width="1558" height="190" key="GridCell.Tab.1.center" timestamp="1600424768828">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1558" height="190" key="GridCell.Tab.1.center/0.23.1600.877@0.23.1600.877" timestamp="1600424768828" />
+    <state width="1558" height="190" key="GridCell.Tab.1.left" timestamp="1600424768828">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1558" height="190" key="GridCell.Tab.1.left/0.23.1600.877@0.23.1600.877" timestamp="1600424768828" />
+    <state width="1558" height="190" key="GridCell.Tab.1.right" timestamp="1600424768829">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1558" height="190" key="GridCell.Tab.1.right/0.23.1600.877@0.23.1600.877" timestamp="1600424768829" />
+    <state x="400" y="197" key="Vcs.Push.Dialog.v2" timestamp="1600405027942">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state x="400" y="197" key="Vcs.Push.Dialog.v2/0.23.1600.877@0.23.1600.877" timestamp="1600405027942" />
     <state x="498" y="171" width="603" height="580" key="find.popup" timestamp="1600399333499">
       <screen x="0" y="23" width="1600" height="877" />
     </state>

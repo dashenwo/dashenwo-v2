@@ -32,7 +32,6 @@ func buildAccountUsecase(c *dig.Container) {
 	} else {
 		panic("初始化redis失败")
 	}
-
 	err2 := c.Provide(gorm.NewAccountRepository)
 	log.Info(err2)
 	err3 := c.Provide(service.NewAccountService)

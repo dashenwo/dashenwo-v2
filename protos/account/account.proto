@@ -38,9 +38,30 @@ message InfoRequest{
     string id = 1;// jwt认证
 
 }
+// 账号信息结构体
+message InfoResponse{
+    //@inject_tag: json:"nickname"
+    string nickname = 1; //昵称
+    //@inject_tag: json:"phone"
+    string phone =2; // 手机号
+    //@inject_tag: json:"email"
+    string email =3; // 邮箱
+    //@inject_tag: json:"register_time"
+    string register_time =4; //注册时间
+}
+// 修改账号信息请求体
+message UpdateRequest{
+
+}
+// 修改账号信息返回体
+message UpdateResponse{
+
+}
 
 // 定义用户服务方法
 service Account{
     rpc Login(LoginRequest) returns (LoginResponse);
+    rpc Info(InfoRequest) returns (InfoResponse);
     rpc Register(RegisterRequest) returns (RegisterResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
 }

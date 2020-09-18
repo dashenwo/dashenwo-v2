@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package=".;proto";//可选项设置包的地址
+
+// 生成单个id
+message Request{
+
+}
+
+message Response{
+  //@inject_tag: validate:"required" json:"id"
+  int64 id = 1;
+}
+
+service Snowflake{
+    rpc Generate(Request) returns (Response);
+}

@@ -1,0 +1,46 @@
+syntax = "proto3";
+option go_package=".;proto";//可选项设置包的地址
+// 登录请求体
+message LoginRequest{
+    //@inject_tag: json:"username" validate:"required" message:"required:用户名不能为空"
+    string username=1;//用户名
+    //@inject_tag: json:"password" validate:"required" message:"required:密码不能为空"
+    string password=2;//密码
+    //@inject_tag: json:"source" validate:"required" message:"required:来源不能为空"
+    string source =3;//来源
+}
+// 登录响应体
+message LoginResponse{
+    //@inject_tag: json:"token"
+    string token=1; // 返回的token
+    //@inject_tag: json:"expires"
+    string expires=2; // 有效期
+}
+// 注册请求体
+message RegisterRequest{
+    //@inject_tag: validate:"required" json:"nickname"
+    string nickname=1;//昵称
+    //@inject_tag: validate:"required,gte=11" message:"required:手机号不能为空,gt:手机号不正确" json:"phone"
+    string phone=2;//手机号
+    //@inject_tag: validate:"required" json:"password"
+    string password=3;//用户密码
+    //@inject_tag: validate:"required" json:"code"
+    string code=4;//手机验证码
+}
+// 注册响应
+message RegisterResponse{
+    //@inject_tag: json:"id"
+    string id = 1; //返回当前用户的id
+}
+// 账号信息请求体
+message InfoRequest{
+    //@inject_tag: validate:"required" json:"id"
+    string id = 1;// jwt认证
+
+}
+
+// 定义用户服务方法
+service Account{
+    rpc Login(LoginRequest) returns (LoginResponse);
+    rpc Register(RegisterRequest) returns (RegisterResponse);
+}

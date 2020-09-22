@@ -53,7 +53,7 @@ func (s AccountService) Register(nickname, password, phone, code string) (*schem
 	//1.验证验证码是否正确
 
 	//2.调用id
-	rsp, callErr := call2()
+	rsp, callErr := call1()
 	if callErr != nil {
 		return nil, callErr
 	}
@@ -81,9 +81,9 @@ func call1() (*proto.Response, error) {
 	service.Init()
 	log.Info("新建一个service获取到的地址", service.Client().Options().Registry.Options().Addrs)
 	// create the proto client for helloworld
-	client := proto.NewSnowflakeService("com.dashenwo.srv.snowflake", service.Client())
+	srv := proto.NewSnowflakeService("com.dashenwo.srv.snowflake", service.Client())
 	// call an endpoint on the service
-	rsp, callErr := client.Generate(context.Background(), &proto.Request{})
+	rsp, callErr := srv.Generate(context.Background(), &proto.Request{})
 	if callErr != nil {
 		return nil, errors.New("com.dashenwo.srv.snowflake", callErr.Error(), 506)
 	}

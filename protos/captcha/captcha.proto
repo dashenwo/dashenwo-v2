@@ -1,0 +1,38 @@
+syntax = "proto3";
+option go_package=".;proto";//可选项设置包的地址
+
+// 发送短信验证码请求体
+message GenerateRequest{
+  //@inject_tag: validate:"required" message:"required:接收者不能为空" json:"recipient"
+  string recipient = 1; // 手机号
+  //@inject_tag: validate:"required" message:"required:验证码类型" json:"type"
+  int32 type = 2; // 验证码类型
+}
+
+// 发送短信验证码返回体
+message GenerateResponse{
+  //@inject_tag:  json:"id"
+  string id = 1; //生成验证码的id
+  //@inject_tag:  json:"expires"
+  string expires = 2; //到期时间
+}
+
+// 验证请求信息
+message VerifyRequest{
+  //@inject_tag: validate:"required" message:"required:验证码唯一标识不能为空" json:"id"
+  string id = 1; //验证码唯一标识
+  //@inject_tag: validate:"required" message:"required:接收者不能为空" json:"recipient"
+  string recipient = 2; //手机号
+  //@inject_tag: validate:"required" message:"required:验证码不能为空" json:"code"
+  string code =3; //验证码
+}
+
+// 验证返回信息
+message VerifyResponse{
+
+}
+
+service Captcha{
+    rpc Generate(GenerateRequest) returns (GenerateResponse);
+    rpc Verify(VerifyRequest) returns (VerifyResponse);
+}

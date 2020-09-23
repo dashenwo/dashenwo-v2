@@ -1,18 +1,16 @@
 package service
 
 import (
-	"context"
 	"fmt"
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/dysmsapi"
 	conf "github.com/dashenwo/dashenwo/v2/console/captcha/config"
 	"github.com/dashenwo/dashenwo/v2/console/captcha/internal/model"
 	"github.com/dashenwo/dashenwo/v2/console/captcha/internal/repository"
 	"github.com/dashenwo/dashenwo/v2/console/captcha/schema"
-	"github.com/dashenwo/dashenwo/v2/console/snowflake/proto"
+	"github.com/dashenwo/dashenwo/v2/pkg/utils/generate"
 	"github.com/dashenwo/dashenwo/v2/pkg/utils/regexp"
-	"github.com/micro/go-micro/v2"
+	"github.com/jinzhu/copier"
 	"github.com/micro/go-micro/v2/errors"
-	"github.com/micro/go-micro/v2/util/log"
 	"gopkg.in/gomail.v2"
 	"math/rand"
 	"strconv"
@@ -33,7 +31,7 @@ func NewCaptchaService(repo repository.CaptchaRepository) *CaptchaService {
 func (s CaptchaService) Generate(recipient string, recipientType int32) (*schema.Captcha, error) {
 	var sendError error
 	code := fmt.Sprintf("%06v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000))
-	rsp, err := getSnowflakeId()
+	rsp, err := generate.GetSnowflakeId()
 	if err != nil {
 		return nil, err
 	}
@@ -60,29 +58,15 @@ func (s CaptchaService) Generate(recipient string, recipientType int32) (*schema
 	if sendError != nil {
 		return nil, errors.New(conf.AppId, sendError.Error(), 510)
 	}
-	return nil, nil
+	item := new(schema.Captcha)
+	_ = copier.Copy(item, captcha)
+	return item, nil
 }
 
 // 注册方法
 func (s CaptchaService) Verify(id, recipient, code string) (*schema.Captcha, error) {
 
 	return nil, nil
-}
-
-func getSnowflakeId() (*proto.Response, error) {
-	now1 := time.Now().UnixNano() / 1e6
-	service := micro.NewService()
-	service.Init()
-	log.Info("新建一个service获取到的地址", service.Client().Options().Registry.Options().Addrs)
-	// create the proto client for helloworld
-	srv := proto.NewSnowflakeService("com.dashenwo.srv.snowflake", service.Client())
-	// call an endpoint on the service
-	rsp, callErr := srv.Generate(context.Background(), &proto.Request{})
-	if callErr != nil {
-		return nil, errors.New("com.dashenwo.srv.snowflake", callErr.Error(), 506)
-	}
-	log.Info("使用proto方式调用消耗：", (time.Now().UnixNano()/1e6)-now1)
-	return rsp, nil
 }
 
 // 发送短信
@@ -118,9 +102,8 @@ func sendSms(phone, code string, sendType int32) error {
 // 发送邮件
 func sendEmail(title, body string, to []string) error {
 	m := gomail.NewMessage()
-	m.SetHeader("From", "admin@coolask.cn")
+	m.SetHeader("From", "coolask@163.com")
 	m.SetHeader("To", to...)
-	m.SetAddressHeader("Cc", "dan@example.com", "Dan")
 	m.SetHeader("Subject", title)
 	m.SetBody("text/html", body)
 	d := gomail.NewDialer(conf.EmailConf.Host, conf.EmailConf.Port, conf.EmailConf.Username, conf.EmailConf.Password)

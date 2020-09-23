@@ -1,20 +1,14 @@
 package service
 
 import (
-	"context"
-	"encoding/json"
 	conf "github.com/dashenwo/dashenwo/v2/console/account/config"
 	"github.com/dashenwo/dashenwo/v2/console/account/internal/model"
 	"github.com/dashenwo/dashenwo/v2/console/account/internal/repository"
 	"github.com/dashenwo/dashenwo/v2/console/account/schema"
-	"github.com/dashenwo/dashenwo/v2/console/snowflake/proto"
 	"github.com/dashenwo/dashenwo/v2/pkg/crypto"
+	"github.com/dashenwo/dashenwo/v2/pkg/utils/generate"
 	"github.com/jinzhu/copier"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/client"
 	"github.com/micro/go-micro/v2/errors"
-	"github.com/micro/go-micro/v2/metadata"
-	"github.com/micro/go-micro/v2/util/log"
 	"strconv"
 	"time"
 )
@@ -53,7 +47,7 @@ func (s AccountService) Register(nickname, password, phone, code string) (*schem
 	//1.验证验证码是否正确
 
 	//2.调用id
-	rsp, callErr := call1()
+	rsp, callErr := generate.GetSnowflakeId()
 	if callErr != nil {
 		return nil, callErr
 	}
@@ -73,49 +67,4 @@ func (s AccountService) Register(nickname, password, phone, code string) (*schem
 	item := new(schema.Account)
 	_ = copier.Copy(item, account)
 	return item, nil
-}
-
-func call1() (*proto.Response, error) {
-	now1 := time.Now().UnixNano() / 1e6
-	service := micro.NewService()
-	service.Init()
-	log.Info("新建一个service获取到的地址", service.Client().Options().Registry.Options().Addrs)
-	// create the proto client for helloworld
-	srv := proto.NewSnowflakeService("com.dashenwo.srv.snowflake", service.Client())
-	// call an endpoint on the service
-	rsp, callErr := srv.Generate(context.Background(), &proto.Request{})
-	if callErr != nil {
-		return nil, errors.New("com.dashenwo.srv.snowflake", callErr.Error(), 506)
-	}
-	log.Info("使用proto方式调用消耗：", (time.Now().UnixNano()/1e6)-now1)
-	return rsp, nil
-}
-
-type responseType struct {
-	Id string `json:"id"`
-}
-
-func call2() (*proto.Response, error) {
-	now1 := time.Now().UnixNano() / 1e6
-	service := micro.NewService()
-	service.Init()
-	// 初始化map
-	var postData = make(map[string]interface{})
-	var response json.RawMessage
-	var rspData proto.Response
-	var err error
-	req := service.Client().NewRequest("com.dashenwo.srv.snowflake", "Snowflake.Generate", postData, client.WithContentType("application/json"))
-	var ctx = metadata.NewContext(context.Background(), map[string]string{
-		"X-User-Id": "john",
-		"X-From-Id": "script",
-	})
-	err = service.Client().Call(ctx, req, &response)
-	_ = json.Unmarshal(response, &rspData)
-	if err != nil {
-		return nil, err
-	}
-
-	log.Info(err, rspData)
-	log.Info("使用proto方式调用消耗：", (time.Now().UnixNano()/1e6)-now1)
-	return &rspData, nil
 }

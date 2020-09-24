@@ -6,6 +6,6 @@ import (
 
 // 用户接口
 type CaptchaRepository interface {
-	FindById(id string) (*model.Captcha, error)
-	Insert(account *model.Captcha) error
+	FindByModel(captcha *model.Captcha) (*model.Captcha, error)
+	Insert(captcha *model.Captcha) error
 }

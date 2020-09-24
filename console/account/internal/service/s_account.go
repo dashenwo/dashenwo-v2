@@ -1,13 +1,16 @@
 package service
 
 import (
+	"context"
 	conf "github.com/dashenwo/dashenwo/v2/console/account/config"
 	"github.com/dashenwo/dashenwo/v2/console/account/internal/model"
 	"github.com/dashenwo/dashenwo/v2/console/account/internal/repository"
 	"github.com/dashenwo/dashenwo/v2/console/account/schema"
+	"github.com/dashenwo/dashenwo/v2/console/captcha/proto"
 	"github.com/dashenwo/dashenwo/v2/pkg/crypto"
 	"github.com/dashenwo/dashenwo/v2/pkg/utils/generate"
 	"github.com/jinzhu/copier"
+	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/errors"
 	"strconv"
 	"time"
@@ -43,9 +46,15 @@ func (s AccountService) Login(username string, password string) (*schema.Account
 }
 
 // 注册方法
-func (s AccountService) Register(nickname, password, phone, code string) (*schema.Account, error) {
+func (s AccountService) Register(nickname, password, recipient, code string) (*schema.Account, error) {
 	//1.验证验证码是否正确
-
+	service := micro.NewService()
+	service.Init()
+	srv := proto.NewCaptchaService("com.dashenwo.srv.captcha", service.Client())
+	_, err := srv.Verify(context.Background(), &proto.VerifyRequest{Recipient: recipient, Code: code, Type: 2})
+	if err != nil {
+		return nil, err
+	}
 	//2.调用id
 	rsp, callErr := generate.GetSnowflakeId()
 	if callErr != nil {
@@ -55,12 +64,12 @@ func (s AccountService) Register(nickname, password, phone, code string) (*schem
 	account := &model.Account{
 		ID:           strconv.FormatInt(rsp.Id, 10),
 		Nickname:     nickname,
-		Phone:        phone,
+		Phone:        recipient,
 		Salt:         salt,
 		Password:     crypto.HashAndSalt(password, salt),
 		RegisterTime: time.Now().Unix(),
 	}
-	err := s.repo.Insert(account)
+	err = s.repo.Insert(account)
 	if err != nil {
 		return nil, err
 	}

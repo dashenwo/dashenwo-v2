@@ -14,12 +14,12 @@ func NewCaptchaRepository() repository.CaptchaRepository {
 	return &CaptchaRepository{}
 }
 
-func (a *CaptchaRepository) FindById(id string) (*model.Captcha, error) {
-	account := model.Captcha{}
-	if err := db.Where("id = ?", id).First(&account).Error; err != nil {
+func (a *CaptchaRepository) FindByModel(captcha *model.Captcha) (*model.Captcha, error) {
+	item := model.Captcha{}
+	if err := db.Where(captcha).Order("created_time desc").First(&item).Error; err != nil {
 		return nil, err
 	}
-	return &account, nil
+	return &item, nil
 }
 
 func (a *CaptchaRepository) Insert(account *model.Captcha) error {

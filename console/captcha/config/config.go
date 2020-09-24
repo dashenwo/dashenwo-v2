@@ -1,11 +1,15 @@
 package config
 
-import "time"
+import (
+	"github.com/dashenwo/dashenwo/v2/pkg/storage/kafka"
+	"time"
+)
 
 var (
 	ConfPath  = "./conf/"
 	AppId     = "com.dashenwo.srv.captcha"
 	EmailConf = Email{}
+	KafkaConf = kafka.Kafka{}
 )
 
 // 数据库配置信息

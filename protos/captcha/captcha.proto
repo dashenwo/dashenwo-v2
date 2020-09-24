@@ -19,12 +19,12 @@ message GenerateResponse{
 
 // 验证请求信息
 message VerifyRequest{
-  //@inject_tag: validate:"required" message:"required:验证码唯一标识不能为空" json:"id"
-  string id = 1; //验证码唯一标识
   //@inject_tag: validate:"required" message:"required:接收者不能为空" json:"recipient"
-  string recipient = 2; //手机号
+  string recipient = 1; //手机号
   //@inject_tag: validate:"required" message:"required:验证码不能为空" json:"code"
-  string code =3; //验证码
+  string code =2; //验证码
+  //@inject_tag: validate:"required" message:"required:验证码类型不能为空" json:"type"
+  int32 type =3; //验证码类型
 }
 
 // 验证返回信息

@@ -22,10 +22,17 @@
     <list default="true" id="53999960-aeec-44e1-9564-9eb8e0ae5f3f" name="默认的" comment="这是使用go-micro,增加短信发送服务">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/console/account/internal/service/s_account.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/internal/service/s_account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/captcha/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/config/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/console/captcha/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/global/global.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/console/captcha/handler/captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/handler/captcha.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/captcha/internal/repository/persistence/gorm/i_captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/internal/repository/persistence/gorm/i_captcha.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/captcha/internal/repository/r_captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/internal/repository/r_captcha.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/console/captcha/internal/service/s_captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/internal/service/s_captcha.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/captcha/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/captcha/proto/captcha.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/proto/captcha.pb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/console/captcha/registry/container.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/registry/container.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/snowflake/bin/conf/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/console/snowflake/bin/conf/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/captcha/captcha.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/captcha/captcha.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +70,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/protos/captcha" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/console/captcha/bin/conf" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/console/captcha/bin/conf" />
       <recent name="$PROJECT_DIR$/protos/captcha" />
       <recent name="$PROJECT_DIR$/console" />
       <recent name="$PROJECT_DIR$" />
@@ -165,7 +173,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="这是使用go-micro v2版本" />
     <MESSAGE value="这是使用go-micro,增加短信发送服务" />
-    <option name="LAST_COMMIT_MESSAGE" value="这是使用go-micro,增加短信发送服务" />
+    <MESSAGE value="Revert &quot;这是使用go-micro,增加短信发送服务&quot;&#10;&#10;This reverts commit d0aba872" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;这是使用go-micro,增加短信发送服务&quot;&#10;&#10;This reverts commit d0aba872" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -180,57 +189,75 @@
       <screen x="0" y="23" width="1600" height="877" />
     </state>
     <state x="600" y="302" key="#Go_Modules/0.23.1600.877@0.23.1600.877" timestamp="1600398455811" />
-    <state x="264" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600765259286">
+    <state x="264" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600918058620">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state x="264" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1600.877@0.23.1600.877" timestamp="1600765259286" />
-    <state width="718" height="646" key="DebuggerActiveHint" timestamp="1600832020644">
+    <state x="264" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1600.877@0.23.1600.877" timestamp="1600918058620" />
+    <state x="260" y="23" key="CommitChangelistDialog2" timestamp="1600856818885">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="718" height="646" key="DebuggerActiveHint/0.23.1600.877@0.23.1600.877" timestamp="1600832020644" />
+    <state x="260" y="23" key="CommitChangelistDialog2/0.23.1600.877@0.23.1600.877" timestamp="1600856818885" />
+    <state width="1074" height="646" key="DebuggerActiveHint" timestamp="1600931631599">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="1074" height="646" key="DebuggerActiveHint/0.23.1600.877@0.23.1600.877" timestamp="1600931631599" />
     <state x="714" y="325" key="EnvironmentVariablesDialog" timestamp="1600398454413">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
     <state x="714" y="325" key="EnvironmentVariablesDialog/0.23.1600.877@0.23.1600.877" timestamp="1600398454413" />
-    <state width="1558" height="280" key="GridCell.Tab.0.bottom" timestamp="1600832353460">
+    <state width="1558" height="252" key="GridCell.Tab.0.bottom" timestamp="1600941165184">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="280" key="GridCell.Tab.0.bottom/0.23.1600.877@0.23.1600.877" timestamp="1600832353460" />
-    <state width="1558" height="280" key="GridCell.Tab.0.center" timestamp="1600832353459">
+    <state width="1558" height="252" key="GridCell.Tab.0.bottom/0.23.1600.877@0.23.1600.877" timestamp="1600941165184" />
+    <state width="1558" height="252" key="GridCell.Tab.0.center" timestamp="1600941165183">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="280" key="GridCell.Tab.0.center/0.23.1600.877@0.23.1600.877" timestamp="1600832353459" />
-    <state width="1558" height="280" key="GridCell.Tab.0.left" timestamp="1600832353458">
+    <state width="1558" height="252" key="GridCell.Tab.0.center/0.23.1600.877@0.23.1600.877" timestamp="1600941165183" />
+    <state width="1558" height="252" key="GridCell.Tab.0.left" timestamp="1600941165183">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="280" key="GridCell.Tab.0.left/0.23.1600.877@0.23.1600.877" timestamp="1600832353458" />
-    <state width="1558" height="280" key="GridCell.Tab.0.right" timestamp="1600832353459">
+    <state width="1558" height="252" key="GridCell.Tab.0.left/0.23.1600.877@0.23.1600.877" timestamp="1600941165183" />
+    <state width="1558" height="252" key="GridCell.Tab.0.right" timestamp="1600941165184">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="280" key="GridCell.Tab.0.right/0.23.1600.877@0.23.1600.877" timestamp="1600832353459" />
-    <state width="1558" height="280" key="GridCell.Tab.1.bottom" timestamp="1600832353461">
+    <state width="1558" height="252" key="GridCell.Tab.0.right/0.23.1600.877@0.23.1600.877" timestamp="1600941165184" />
+    <state width="1558" height="252" key="GridCell.Tab.1.bottom" timestamp="1600941165185">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="280" key="GridCell.Tab.1.bottom/0.23.1600.877@0.23.1600.877" timestamp="1600832353461" />
-    <state width="1558" height="280" key="GridCell.Tab.1.center" timestamp="1600832353460">
+    <state width="1558" height="252" key="GridCell.Tab.1.bottom/0.23.1600.877@0.23.1600.877" timestamp="1600941165185" />
+    <state width="1558" height="252" key="GridCell.Tab.1.center" timestamp="1600941165185">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="280" key="GridCell.Tab.1.center/0.23.1600.877@0.23.1600.877" timestamp="1600832353460" />
-    <state width="1558" height="280" key="GridCell.Tab.1.left" timestamp="1600832353460">
+    <state width="1558" height="252" key="GridCell.Tab.1.center/0.23.1600.877@0.23.1600.877" timestamp="1600941165185" />
+    <state width="1558" height="252" key="GridCell.Tab.1.left" timestamp="1600941165184">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="280" key="GridCell.Tab.1.left/0.23.1600.877@0.23.1600.877" timestamp="1600832353460" />
-    <state width="1558" height="280" key="GridCell.Tab.1.right" timestamp="1600832353460">
+    <state width="1558" height="252" key="GridCell.Tab.1.left/0.23.1600.877@0.23.1600.877" timestamp="1600941165184" />
+    <state width="1558" height="252" key="GridCell.Tab.1.right" timestamp="1600941165185">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="280" key="GridCell.Tab.1.right/0.23.1600.877@0.23.1600.877" timestamp="1600832353460" />
-    <state x="400" y="197" key="Vcs.Push.Dialog.v2" timestamp="1600765931442">
+    <state width="1558" height="252" key="GridCell.Tab.1.right/0.23.1600.877@0.23.1600.877" timestamp="1600941165185" />
+    <state x="400" y="197" key="Vcs.Push.Dialog.v2" timestamp="1600856821726">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state x="400" y="197" key="Vcs.Push.Dialog.v2/0.23.1600.877@0.23.1600.877" timestamp="1600765931442" />
+    <state x="400" y="197" key="Vcs.Push.Dialog.v2/0.23.1600.877@0.23.1600.877" timestamp="1600856821726" />
     <state x="498" y="171" width="603" height="580" key="find.popup" timestamp="1600399333499">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
     <state x="498" y="171" width="603" height="580" key="find.popup/0.23.1600.877@0.23.1600.877" timestamp="1600399333499" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/console/captcha/internal/service/s_captcha.go</url>
+          <line>80</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="DlvErrorBreakpoint" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

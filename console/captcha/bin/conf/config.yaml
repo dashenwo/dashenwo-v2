@@ -1,0 +1,21 @@
+database:
+  logMode: true
+  engine: "mysql"
+  host: "203.195.200.40"
+  port: "3306"
+  user: "captcha"
+  password: "Liuqin76624291"
+  name: "captcha"
+  AutoMigrate: true
+  maxOpenConns: 10
+  maxIdleConns: 1
+  connMaxLifetime: 60000000000
+email:
+  host: "smtp.163.com"
+  port: 465
+  username: "coolask@163.com"
+  password: "DJHJCUQYFDMLHODB"
+kafka:
+  hosts: ["203.195.200.40:9093","203.195.200.40:9094","203.195.200.40:9095"]
+  topic: "captcha"
+

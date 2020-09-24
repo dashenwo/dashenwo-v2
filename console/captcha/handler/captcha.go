@@ -44,6 +44,9 @@ func (a *Captcha) Verify(ctx context.Context, req *proto.VerifyRequest, res *pro
 		return err
 	}
 	//2.验证验证码，传入手机号或者邮箱和验证码
-	captcha, err := a.captchaService.Verify(req.Recipient, req.Recipient)
+	_, err := a.captchaService.Verify(req.Recipient, req.Code, req.Type)
+	if err != nil {
+		return err
+	}
 	return nil
 }

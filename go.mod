@@ -3,6 +3,7 @@ module github.com/dashenwo/dashenwo/v2
 go 1.14
 
 require (
+	github.com/Shopify/sarama v1.19.0
 	github.com/aliyun/alibaba-cloud-sdk-go v0.0.0-20190808125512-07798873deee
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/codahale/hdrhistogram v0.0.0-20161010025455-3a0bb77429bd // indirect

@@ -11,7 +11,6 @@ import (
 	"github.com/dashenwo/dashenwo/v2/console/captcha/internal/repository"
 	"github.com/dashenwo/dashenwo/v2/console/captcha/schema"
 	"github.com/dashenwo/dashenwo/v2/pkg/utils/generate"
-	"github.com/dashenwo/dashenwo/v2/pkg/utils/regexp"
 	"github.com/jinzhu/copier"
 	"github.com/jinzhu/gorm"
 	"github.com/micro/go-micro/v2/errors"
@@ -34,7 +33,6 @@ func NewCaptchaService(repo repository.CaptchaRepository) *CaptchaService {
 
 // 生成验证码并发送
 func (s CaptchaService) Generate(recipient string, recipientType int32) (*schema.Captcha, error) {
-	var sendError error
 	code := fmt.Sprintf("%06v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000))
 	rsp, err := generate.GetSnowflakeId()
 	if err != nil {

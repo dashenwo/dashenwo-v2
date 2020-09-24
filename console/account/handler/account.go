@@ -37,7 +37,7 @@ func (a *Account) Login(ctx context.Context, req *proto.LoginRequest, res *proto
 		return err
 	}
 	// 生成token
-	token := crypto.Md5("userToken_" + req.Source + "_" + user.ID)
+	token := crypto.Md5("token:" + req.Source + "_" + user.ID)
 	log.Info(global.Redis)
 	// 保存数据到redis
 	data, _ := json.Marshal(user)

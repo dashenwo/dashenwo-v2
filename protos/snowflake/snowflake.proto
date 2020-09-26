@@ -1,4 +1,5 @@
 syntax = "proto3";
+package snowflake;
 option go_package=".;proto";//可选项设置包的地址
 
 // 生成单个id

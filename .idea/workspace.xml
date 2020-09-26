@@ -19,20 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53999960-aeec-44e1-9564-9eb8e0ae5f3f" name="默认的" comment="这是使用go-micro,增加短信发送服务">
+    <list default="true" id="53999960-aeec-44e1-9564-9eb8e0ae5f3f" name="默认的" comment="信修复一些问题">
+      <change afterPath="$PROJECT_DIR$/gateway/server/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/account/internal/service/s_account.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/internal/service/s_account.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/global/global.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/handler/captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/handler/captcha.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/internal/repository/persistence/gorm/i_captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/internal/repository/persistence/gorm/i_captcha.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/internal/repository/r_captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/internal/repository/r_captcha.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/internal/service/s_captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/internal/service/s_captcha.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/proto/account.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/proto/account.pb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/console/captcha/proto/captcha.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/proto/captcha.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/registry/container.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/registry/container.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/snowflake/bin/conf/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/console/snowflake/bin/conf/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/snowflake/proto/snowflake.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/snowflake/proto/snowflake.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/account/account.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/account/account.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protos/captcha/captcha.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/captcha/captcha.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/snowflake/snowflake.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/snowflake/snowflake.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +78,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.captcha">
+  <component name="RunManager" selected="Go Build.snowflake">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="dashenwo-v2" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -152,11 +149,14 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.captcha" />
         <item itemvalue="Go Build.snowflake" />
         <item itemvalue="Go Build.account" />
+        <item itemvalue="Go Build.captcha" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -201,42 +201,54 @@
       <screen x="0" y="23" width="1600" height="877" />
     </state>
     <state width="1074" height="646" key="DebuggerActiveHint/0.23.1600.877@0.23.1600.877" timestamp="1600931631599" />
+    <state x="100" y="123" width="1720" height="857" key="DiffContextDialog" timestamp="1601066454905">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="100" y="123" width="1720" height="857" key="DiffContextDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1601066454905" />
     <state x="714" y="325" key="EnvironmentVariablesDialog" timestamp="1600398454413">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
     <state x="714" y="325" key="EnvironmentVariablesDialog/0.23.1600.877@0.23.1600.877" timestamp="1600398454413" />
-    <state width="1558" height="252" key="GridCell.Tab.0.bottom" timestamp="1600941165184">
-      <screen x="0" y="23" width="1600" height="877" />
+    <state width="1878" height="352" key="GridCell.Tab.0.bottom" timestamp="1601103631658">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1558" height="252" key="GridCell.Tab.0.bottom/0.23.1600.877@0.23.1600.877" timestamp="1600941165184" />
-    <state width="1558" height="252" key="GridCell.Tab.0.center" timestamp="1600941165183">
-      <screen x="0" y="23" width="1600" height="877" />
+    <state width="1878" height="352" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
+    <state width="1878" height="352" key="GridCell.Tab.0.center" timestamp="1601103631658">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1558" height="252" key="GridCell.Tab.0.center/0.23.1600.877@0.23.1600.877" timestamp="1600941165183" />
-    <state width="1558" height="252" key="GridCell.Tab.0.left" timestamp="1600941165183">
-      <screen x="0" y="23" width="1600" height="877" />
+    <state width="1878" height="352" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
+    <state width="1878" height="352" key="GridCell.Tab.0.left" timestamp="1601103631658">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1558" height="252" key="GridCell.Tab.0.left/0.23.1600.877@0.23.1600.877" timestamp="1600941165183" />
-    <state width="1558" height="252" key="GridCell.Tab.0.right" timestamp="1600941165184">
-      <screen x="0" y="23" width="1600" height="877" />
+    <state width="1878" height="352" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
+    <state width="1878" height="352" key="GridCell.Tab.0.right" timestamp="1601103631658">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1558" height="252" key="GridCell.Tab.0.right/0.23.1600.877@0.23.1600.877" timestamp="1600941165184" />
-    <state width="1558" height="252" key="GridCell.Tab.1.bottom" timestamp="1600941165185">
-      <screen x="0" y="23" width="1600" height="877" />
+    <state width="1878" height="352" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
+    <state width="1878" height="352" key="GridCell.Tab.1.bottom" timestamp="1601103631658">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1558" height="252" key="GridCell.Tab.1.bottom/0.23.1600.877@0.23.1600.877" timestamp="1600941165185" />
-    <state width="1558" height="252" key="GridCell.Tab.1.center" timestamp="1600941165185">
-      <screen x="0" y="23" width="1600" height="877" />
+    <state width="1878" height="352" key="GridCell.Tab.1.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
+    <state width="1878" height="352" key="GridCell.Tab.1.center" timestamp="1601103631658">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1558" height="252" key="GridCell.Tab.1.center/0.23.1600.877@0.23.1600.877" timestamp="1600941165185" />
-    <state width="1558" height="252" key="GridCell.Tab.1.left" timestamp="1600941165184">
-      <screen x="0" y="23" width="1600" height="877" />
+    <state width="1878" height="352" key="GridCell.Tab.1.center/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
+    <state width="1878" height="352" key="GridCell.Tab.1.left" timestamp="1601103631658">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1558" height="252" key="GridCell.Tab.1.left/0.23.1600.877@0.23.1600.877" timestamp="1600941165184" />
-    <state width="1558" height="252" key="GridCell.Tab.1.right" timestamp="1600941165185">
-      <screen x="0" y="23" width="1600" height="877" />
+    <state width="1878" height="352" key="GridCell.Tab.1.left/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
+    <state width="1878" height="352" key="GridCell.Tab.1.right" timestamp="1601103631658">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1558" height="252" key="GridCell.Tab.1.right/0.23.1600.877@0.23.1600.877" timestamp="1600941165185" />
+    <state width="1878" height="352" key="GridCell.Tab.1.right/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
     <state x="400" y="197" key="Vcs.Push.Dialog.v2" timestamp="1600856821726">
       <screen x="0" y="23" width="1600" height="877" />
     </state>

@@ -43,7 +43,7 @@ func main() {
 		micro.Version("latest"),
 		micro.Metadata(md),
 		// 设置启动ip
-		//micro.Address(":8001"),
+		micro.Address(":8001"),
 		micro.Flags(
 			&cli.StringFlag{
 				Name:  "conf_path",

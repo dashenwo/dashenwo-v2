@@ -1,4 +1,4 @@
-package gateway
+package main
 
 import "github.com/micro/go-micro/v2/config/cmd"
 

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package account;
+package com.dashenwo.srv.account;
 option go_package=".;proto";//可选项设置包的地址
 // 登录请求体
 message LoginRequest{

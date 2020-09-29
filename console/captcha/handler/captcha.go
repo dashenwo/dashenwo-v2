@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"errors"
 	conf "github.com/dashenwo/dashenwo/v2/console/captcha/config"
 	"github.com/dashenwo/dashenwo/v2/console/captcha/internal/service"
 	"github.com/dashenwo/dashenwo/v2/console/captcha/proto"
@@ -34,7 +35,7 @@ func (a *Captcha) Generate(ctx context.Context, req *proto.GenerateRequest, res 
 	hh, _ := time.ParseDuration("10m")
 	res.Id = captcha.ID
 	res.Expires = now.Add(hh).Format("2006-01-02 15:04:05")
-	return nil
+	return errors.New("这是错误信息")
 }
 
 // 注册handler

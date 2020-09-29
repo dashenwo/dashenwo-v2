@@ -2,9 +2,10 @@ package agent
 
 import (
 	"github.com/dashenwo/dashenwo/v2/gateway/pkg/logger"
-	"github.com/dashenwo/dashenwo/v2/gateway/schema"
-	"github.com/gin-gonic/gin"
+	_ "github.com/dashenwo/dashenwo/v2/gateway/schema"
 	"github.com/urfave/cli/v2"
+	//"github.com/valyala/fasthttp"
+	"net/http"
 	"os"
 	"os/signal"
 	"sync/atomic"
@@ -62,35 +63,20 @@ EXIT:
 // 初始化
 func Init(ctx *cli.Context) (func(), error) {
 	var err error
-	//1.初始化配置文件
+	//1.初始化配置文件,注册路由
 
 	//2.初始化etcd
 
 	//3.同步配置
 
 	//4.初始化http服务
-	r := gin.Default()
-
-	r.Any("/*path", func(c *gin.Context) {
-		// init获取配置文件
-		api := &schema.Api{
-			Title:         "用户登录",
-			Upstreams:     "192.168.3.4:8002",
-			RequestMethod: []string{"POST", "GET"},
-			RequestURL:    "/user/login",
-			Proto:         "GRPC",
-			TargetMethod:  "GRPC",
-			TargetURL:     "com.dashenwo.srv.account_srv.Account/Login",
-			TimeOut:       2000,
-			Gid:           1,
-			Pid:           1,
-		}
-
-		logger.Info("进来了")
+	http.HandleFunc("/", func(witer http.ResponseWriter, request *http.Request) {
+		witer.Write([]byte("这就是了"))
 	})
-	if err = r.Run(":9000"); err != nil {
-
-	}
+	_ = http.ListenAndServe(":9001", nil)
+	//err = fasthttp.ListenAndServe(":9000", func(ctx *fasthttp.RequestCtx) {
+	//	_, _ = ctx.WriteString("这就是了")
+	//})
 	return func() {
 
 	}, err

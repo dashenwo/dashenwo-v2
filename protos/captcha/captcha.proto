@@ -1,12 +1,12 @@
 syntax = "proto3";
-package  captcha;
+package com.dashenwo.srv.captcha;
 option go_package=".;proto";//可选项设置包的地址
 
 // 发送短信验证码请求体
 message GenerateRequest{
   //@inject_tag: validate:"required" message:"required:接收者不能为空" json:"recipient"
   string recipient = 1; // 手机号
-  //@inject_tag: validate:"required" message:"required:验证码类型" json:"type"
+  //@inject_tag: validate:"required" message:"required:验证码类型不能为空" json:"type"
   int32 type = 2; // 验证码类型
 }
 

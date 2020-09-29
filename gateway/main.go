@@ -1,6 +1,6 @@
 package main
 
-import "github.com/micro/go-micro/v2/config/cmd"
+import "github.com/dashenwo/dashenwo/v2/gateway/cmd"
 
 func main() {
 	if err := cmd.Init(); err != nil {

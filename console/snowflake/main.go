@@ -9,6 +9,7 @@ import (
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/config"
 	"github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/server/grpc"
 	"github.com/micro/go-micro/v2/util/log"
 	"github.com/micro/go-plugins/logger/zap/v2"
 	"github.com/micro/go-plugins/wrapper/trace/opentracing/v2"
@@ -37,8 +38,10 @@ func main() {
 	md := make(map[string]string)
 	md["chain"] = "gray"
 
+	gsrv := grpc.NewServer()
 	//创建服务
 	service := micro.NewService(
+		micro.Server(gsrv),
 		micro.Name(conf.AppId),
 		micro.Version("latest"),
 		micro.Metadata(md),

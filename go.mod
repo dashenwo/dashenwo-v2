@@ -22,11 +22,13 @@ require (
 	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
 	github.com/olivere/elastic/v7 v7.0.20
 	github.com/opentracing/opentracing-go v1.2.0
+	github.com/prometheus/common v0.6.0
 	github.com/uber/jaeger-client-go v2.25.0+incompatible
 	github.com/uber/jaeger-lib v2.2.0+incompatible
 	go.uber.org/dig v1.10.0
 	go.uber.org/zap v1.16.0
 	golang.org/x/crypto v0.0.0-20200510223506-06a226fb4e37
+	google.golang.org/grpc v1.26.0
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
 )

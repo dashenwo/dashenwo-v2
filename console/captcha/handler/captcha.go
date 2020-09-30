@@ -2,7 +2,6 @@ package handler
 
 import (
 	"context"
-	"errors"
 	conf "github.com/dashenwo/dashenwo/v2/console/captcha/config"
 	"github.com/dashenwo/dashenwo/v2/console/captcha/internal/service"
 	"github.com/dashenwo/dashenwo/v2/console/captcha/proto"
@@ -35,7 +34,20 @@ func (a *Captcha) Generate(ctx context.Context, req *proto.GenerateRequest, res 
 	hh, _ := time.ParseDuration("10m")
 	res.Id = captcha.ID
 	res.Expires = now.Add(hh).Format("2006-01-02 15:04:05")
-	return errors.New("这是错误信息")
+	//userCookie := &http.Cookie{
+	//	Name: "id",
+	//	Value: res.Id,
+	//}
+	//expiresCookie := &http.Cookie{
+	//	Name: "expires",
+	//	Value: res.Expires,
+	//}
+	//header := metadata.Pairs(
+	//	"Set-Cookie", userCookie.String(),
+	//	"Set-Cookie", expiresCookie.String(),
+	//)
+	//_ = grpc.SendHeader(ctx, header)
+	return nil
 }
 
 // 注册handler

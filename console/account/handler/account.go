@@ -27,7 +27,6 @@ func NewAccountHandler(accountService *service.AccountService) *Account {
 
 // 登录handler
 func (a *Account) Login(ctx context.Context, req *proto.LoginRequest, res *proto.LoginResponse) error {
-	log.Info("进来了登录方法", req)
 	//1.验证数据
 	if err := validate.Validate(req, conf.AppId); err != nil {
 		return err

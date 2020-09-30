@@ -21,14 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="53999960-aeec-44e1-9564-9eb8e0ae5f3f" name="默认的" comment="信修复一些问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aaa.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/account/proto/account.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/proto/account.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/handler/account.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/handler/account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/account/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/account/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/console/captcha/handler/captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/handler/captcha.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/captcha/proto/captcha.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/console/captcha/proto/captcha.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/agent/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/agent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protos/account/account.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/account/account.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-transcode.lua" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-transcode.lua" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,9 +161,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.captcha" />
+        <item itemvalue="Go Build.account" />
         <item itemvalue="Go Build.snowflake" />
         <item itemvalue="Go Build.gateway" />
-        <item itemvalue="Go Build.account" />
       </list>
     </recent_temporary>
   </component>
@@ -188,7 +186,8 @@
     <MESSAGE value="这是使用go-micro v2版本" />
     <MESSAGE value="这是使用go-micro,增加短信发送服务" />
     <MESSAGE value="Revert &quot;这是使用go-micro,增加短信发送服务&quot;&#10;&#10;This reverts commit d0aba872" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;这是使用go-micro,增加短信发送服务&quot;&#10;&#10;This reverts commit d0aba872" />
+    <MESSAGE value="信修复一些问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="信修复一些问题" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -223,50 +222,54 @@
       <screen x="0" y="23" width="1600" height="877" />
     </state>
     <state x="714" y="325" key="EnvironmentVariablesDialog/0.23.1600.877@0.23.1600.877" timestamp="1600398454413" />
-    <state width="1558" height="252" key="GridCell.Tab.0.bottom" timestamp="1601358454954">
+    <state width="1558" height="191" key="GridCell.Tab.0.bottom" timestamp="1601451899792">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="252" key="GridCell.Tab.0.bottom/0.23.1600.877@0.23.1600.877" timestamp="1601358454954" />
+    <state width="1558" height="191" key="GridCell.Tab.0.bottom/0.23.1600.877@0.23.1600.877" timestamp="1601451899792" />
     <state width="1878" height="352" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
-    <state width="1558" height="252" key="GridCell.Tab.0.center" timestamp="1601358454953">
+    <state width="1558" height="191" key="GridCell.Tab.0.center" timestamp="1601451899791">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="252" key="GridCell.Tab.0.center/0.23.1600.877@0.23.1600.877" timestamp="1601358454953" />
+    <state width="1558" height="191" key="GridCell.Tab.0.center/0.23.1600.877@0.23.1600.877" timestamp="1601451899791" />
     <state width="1878" height="352" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
-    <state width="1558" height="252" key="GridCell.Tab.0.left" timestamp="1601358454953">
+    <state width="1558" height="191" key="GridCell.Tab.0.left" timestamp="1601451899790">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="252" key="GridCell.Tab.0.left/0.23.1600.877@0.23.1600.877" timestamp="1601358454953" />
+    <state width="1558" height="191" key="GridCell.Tab.0.left/0.23.1600.877@0.23.1600.877" timestamp="1601451899790" />
     <state width="1878" height="352" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
-    <state width="1558" height="252" key="GridCell.Tab.0.right" timestamp="1601358454954">
+    <state width="1558" height="191" key="GridCell.Tab.0.right" timestamp="1601451899791">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="252" key="GridCell.Tab.0.right/0.23.1600.877@0.23.1600.877" timestamp="1601358454954" />
+    <state width="1558" height="191" key="GridCell.Tab.0.right/0.23.1600.877@0.23.1600.877" timestamp="1601451899791" />
     <state width="1878" height="352" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
-    <state width="1558" height="252" key="GridCell.Tab.1.bottom" timestamp="1601358454954">
+    <state width="1558" height="191" key="GridCell.Tab.1.bottom" timestamp="1601451899793">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="252" key="GridCell.Tab.1.bottom/0.23.1600.877@0.23.1600.877" timestamp="1601358454954" />
+    <state width="1558" height="191" key="GridCell.Tab.1.bottom/0.23.1600.877@0.23.1600.877" timestamp="1601451899793" />
     <state width="1878" height="352" key="GridCell.Tab.1.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
-    <state width="1558" height="252" key="GridCell.Tab.1.center" timestamp="1601358454954">
+    <state width="1558" height="191" key="GridCell.Tab.1.center" timestamp="1601451899792">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="252" key="GridCell.Tab.1.center/0.23.1600.877@0.23.1600.877" timestamp="1601358454954" />
+    <state width="1558" height="191" key="GridCell.Tab.1.center/0.23.1600.877@0.23.1600.877" timestamp="1601451899792" />
     <state width="1878" height="352" key="GridCell.Tab.1.center/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
-    <state width="1558" height="252" key="GridCell.Tab.1.left" timestamp="1601358454954">
+    <state width="1558" height="191" key="GridCell.Tab.1.left" timestamp="1601451899792">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="252" key="GridCell.Tab.1.left/0.23.1600.877@0.23.1600.877" timestamp="1601358454954" />
+    <state width="1558" height="191" key="GridCell.Tab.1.left/0.23.1600.877@0.23.1600.877" timestamp="1601451899792" />
     <state width="1878" height="352" key="GridCell.Tab.1.left/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
-    <state width="1558" height="252" key="GridCell.Tab.1.right" timestamp="1601358454954">
+    <state width="1558" height="191" key="GridCell.Tab.1.right" timestamp="1601451899793">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state width="1558" height="252" key="GridCell.Tab.1.right/0.23.1600.877@0.23.1600.877" timestamp="1601358454954" />
+    <state width="1558" height="191" key="GridCell.Tab.1.right/0.23.1600.877@0.23.1600.877" timestamp="1601451899793" />
     <state width="1878" height="352" key="GridCell.Tab.1.right/0.23.1920.1057@0.23.1920.1057" timestamp="1601103631658" />
-    <state x="400" y="197" key="Vcs.Push.Dialog.v2" timestamp="1600856821726">
+    <state x="400" y="197" key="Vcs.Push.Dialog.v2" timestamp="1601375139850">
       <screen x="0" y="23" width="1600" height="877" />
     </state>
-    <state x="400" y="197" key="Vcs.Push.Dialog.v2/0.23.1600.877@0.23.1600.877" timestamp="1600856821726" />
+    <state x="400" y="197" key="Vcs.Push.Dialog.v2/0.23.1600.877@0.23.1600.877" timestamp="1601375139850" />
+    <state width="800" height="438" key="XDebugger.FullValuePopup" timestamp="1601436696118">
+      <screen x="0" y="23" width="1600" height="877" />
+    </state>
+    <state width="800" height="438" key="XDebugger.FullValuePopup/0.23.1600.877@0.23.1600.877" timestamp="1601436696118" />
     <state x="498" y="171" width="603" height="580" key="find.popup" timestamp="1600399333499">
       <screen x="0" y="23" width="1600" height="877" />
     </state>

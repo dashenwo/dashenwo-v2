@@ -121,7 +121,7 @@ function _M.access(conf, ctx)
     end
 
     local ok, err = request(proto_obj, conf.service,
-                            conf.method, conf.pb_option, conf.deadline)
+            conf.method, conf.pb_option, conf.deadline)
     if not ok then
         core.log.error("transform request error: ", err)
         return

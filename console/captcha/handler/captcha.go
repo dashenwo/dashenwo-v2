@@ -34,6 +34,7 @@ func (a *Captcha) Generate(ctx context.Context, req *proto.GenerateRequest, res 
 	hh, _ := time.ParseDuration("10m")
 	res.Id = captcha.ID
 	res.Expires = now.Add(hh).Format("2006-01-02 15:04:05")
+
 	//userCookie := &http.Cookie{
 	//	Name: "id",
 	//	Value: res.Id,

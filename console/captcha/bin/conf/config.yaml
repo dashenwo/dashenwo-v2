@@ -18,4 +18,6 @@ email:
 kafka:
   hosts: ["203.195.200.40:9093","203.195.200.40:9094","203.195.200.40:9095"]
   topic: "captcha"
-
+session:
+  drive: "redis"
+  host: []

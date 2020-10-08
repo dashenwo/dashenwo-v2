@@ -15,6 +15,14 @@ elasticsearch:
   BasicAuth:
     UserName: ""
     PassWord: ""
+session:
+  name: "session_id"
+  expire: 3600
+  secret: "idmfdDh44qCQL8z6rVBnuAe91gk0oW5l"
+  redis:
+    hosts: ["192.168.3.4:7001","192.168.3.4:7002","192.168.3.4:7003","192.168.3.4:7004","192.168.3.4:7005","192.168.3.4:7006"]
+    password: "Liuqin76624291"
+    timeout: 1000
 redis:
   host: "203.195.200.40:6379"
   password: "Liuqin76624291"

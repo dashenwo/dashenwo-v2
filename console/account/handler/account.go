@@ -2,16 +2,12 @@ package handler
 
 import (
 	"context"
-	"encoding/json"
 	conf "github.com/dashenwo/dashenwo/v2/console/account/config"
-	"github.com/dashenwo/dashenwo/v2/console/account/global"
 	"github.com/dashenwo/dashenwo/v2/console/account/internal/service"
 	"github.com/dashenwo/dashenwo/v2/console/account/proto"
-	"github.com/dashenwo/dashenwo/v2/pkg/crypto"
+	"github.com/dashenwo/dashenwo/v2/console/account/wrapper/sessions"
 	"github.com/dashenwo/dashenwo/v2/pkg/utils/validate"
-	"github.com/micro/go-micro/v2/errors"
 	"github.com/micro/go-micro/v2/util/log"
-	"time"
 )
 
 type Account struct {
@@ -27,6 +23,10 @@ func NewAccountHandler(accountService *service.AccountService) *Account {
 
 // 登录handler
 func (a *Account) Login(ctx context.Context, req *proto.LoginRequest, res *proto.LoginResponse) error {
+	session := sessions.GetSession(ctx)
+	log.Info(session)
+	session.Set("username", "15023989265")
+	session.Save()
 	//1.验证数据
 	if err := validate.Validate(req, conf.AppId); err != nil {
 		return err
@@ -35,19 +35,20 @@ func (a *Account) Login(ctx context.Context, req *proto.LoginRequest, res *proto
 	if err != nil {
 		return err
 	}
-	// 生成token
-	token := crypto.Md5("token:" + req.Source + "_" + user.ID)
-	log.Info(global.Redis)
-	// 保存数据到redis
-	data, _ := json.Marshal(user)
-	if err := global.Redis.Set(token, string(data), time.Hour*2).Err(); err != nil {
-		return errors.New(conf.AppId, "设置用户登录状态失败", 504)
-	}
-	now := time.Now()
-	hh, _ := time.ParseDuration("1h")
+
+	//// 生成token
+	//token := crypto.Md5("token:" + req.Source + "_" + user.ID)
+	//log.Info(global.Redis)
+	//// 保存数据到redis
+	//data, _ := json.Marshal(user)
+	//if err := global.Redis.Set(token, string(data), time.Hour*2).Err(); err != nil {
+	//	return errors.New(conf.AppId, "设置用户登录状态失败", 504)
+	//}
+	//now := time.Now()
+	//hh, _ := time.ParseDuration("1h")
 	// 返回token
-	res.Token = token
-	res.Expires = now.Add(2 * hh).Format("2006-01-02 15:04:05")
+	//res.Token = token
+	//res.Expires = now.Add(2 * hh).Format("2006-01-02 15:04:05")
 	log.Info(user, err)
 	return nil
 }

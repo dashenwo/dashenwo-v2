@@ -1,1 +1,4 @@
 /.idea
+/console/account/bin/account
+/console/captcha/bin/captcha
+/console/snowflake/bin/snowflake
